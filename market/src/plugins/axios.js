@@ -15,5 +15,26 @@ const requestHandler = (req) =>{
         req.headers['Authorization'] = `Bearer ${session.token}`;
     }
 
-    return req; 
+    return req;
 }
+
+const errorResponseHandler = (e)=>{
+    return Promise.reject(e)
+}
+
+const successResponseHandler = (res)=>{
+    return Promise.reject(res.data)
+}
+
+//config request
+AxiosClient.interceptors.request.use(
+    requestHandler,
+    (e)=>Promise.reject(e)
+);
+
+AxiosClient.interceptors.response.use(
+   successResponseHandler, error => errorResponseHandler(error)
+);
+
+
+export default AxiosClient
