@@ -1,4 +1,3 @@
-import {Figure} from "react-bootstrap";
 import {useContext,useEffect} from "react";
 import {AuthContext} from "../context/AuthContext";
 import {Navigation, useNavigation} from "react-router-dom";
@@ -91,9 +90,28 @@ export const LoginScreen = () => {
                                             <Form className="mt-4" onSubmit={formik.handleSubmit}>
                                                 <Form.Group className="form-outline mb-4" >
                                                     <Form.Label className="form-label" htmlFor="username">Username</Form.Label>
+
+                                                <Form.Control placeholder="mikemoreno" type="text" id="username" name="username" onChange={formik.handleChange} value={formik.values.username} autoComplete="off" />
+                                                    {
+                                                        formik.errors.username?
+                                                            <span className="error-text">
+                                                                {formik.errors.username}
+                                                            </span>:null
+                                                    }
+                                                </Form.Group>
+
+                                                <Form.Group className="form-outline mb-4" >
+                                                    <Form.Label className="form-label" htmlFor="password">Password</Form.Label>
+
+                                                    <Form.Control placeholder="*****" type="password" id="password" name="password" onChange={formik.handleChange} value={formik.values.password} autoComplete="off" />
+                                                    {
+                                                        formik.errors.username?
+                                                            <span className="error-text">
+                                                                {formik.errors.password}
+                                                            </span>:null
+                                                    }
                                                 </Form.Group>
                                             </Form>
-                                            <Form.Control placeholder="mikemoreno" type="text" id="username" name="username" onChange={formik.handleChange} value={formik.values.username} autoComplete="off" />
                                         </div>
                                     </Col>
                                     <Col lg={6} className='align-iteams-center gradient-custom-2'>

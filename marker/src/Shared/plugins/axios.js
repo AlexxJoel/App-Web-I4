@@ -1,6 +1,6 @@
-import * as instance from 'axios';
+import axios  from 'axios';
 
-const AxiosClient = instance.create({
+const AxiosClient = axios.create({
     baseURL: 'http://localhost:8080/api-fistapp'
 });
 
