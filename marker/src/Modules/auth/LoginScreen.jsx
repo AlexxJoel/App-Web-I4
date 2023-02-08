@@ -16,7 +16,7 @@ H4.propTypes = {
     className: PropTypes.string,
     children: PropTypes.node
 };
-export const LoginScreen = () => {
+export default () => {
     const Navigation = useNavigation();
     const {user, dispatch} = useContext(AuthContext);
     const formik = useFormik({
