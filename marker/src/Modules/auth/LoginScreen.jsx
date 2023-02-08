@@ -87,7 +87,7 @@ export const LoginScreen = () => {
                                                     Market
                                                 </H4>
                                             </div>
-                                            < className="mt-4" onSubmit={formik.handleSubmit}>
+                                            <Form className="mt-4" onSubmit={formik.handleSubmit}>
                                                 <Form.Group className="form-outline mb-4" >
                                                     <Form.Label className="form-label" htmlFor="username">Username</Form.Label>
 
@@ -129,6 +129,12 @@ export const LoginScreen = () => {
                                         </div>
                                     </Col>
                                     <Col lg={6} className='align-iteams-center gradient-custom-2'>
+                                        <div className="text-white px-3 py-4 p-md-5 mx-md-4">
+                                            <h4 className="mb-4">MARKET</h4>
+                                            <p className="small mb-0">
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consectetur dignissimos distinctio et, eum fuga fugit incidunt inventore, labore maiores nesciunt obcaecati perferendis, quasi qui quia quod repellendus tempora? A.
+                                            </p>
+                                        </div>
                                     </Col>
                                 </Row>
                             </div>
