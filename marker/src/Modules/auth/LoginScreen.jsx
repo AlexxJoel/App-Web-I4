@@ -5,7 +5,7 @@ import {Form, useFormik} from "formik";
 import * as Yup from "yup";
 import AxiosClient from "../../Shared/plugins/axios";
 import Alert from "../../Shared/components/Alert";
-import {Col, Container, Figure, Row} from "react-bootstrap";
+import {Button, Col, Container, Figure, FormGroup, Row} from "react-bootstrap";
 import * as PropTypes from "prop-types";
 
 function H4(props) {
@@ -87,7 +87,7 @@ export const LoginScreen = () => {
                                                     Market
                                                 </H4>
                                             </div>
-                                            <Form className="mt-4" onSubmit={formik.handleSubmit}>
+                                            < className="mt-4" onSubmit={formik.handleSubmit}>
                                                 <Form.Group className="form-outline mb-4" >
                                                     <Form.Label className="form-label" htmlFor="username">Username</Form.Label>
 
@@ -111,6 +111,20 @@ export const LoginScreen = () => {
                                                             </span>:null
                                                     }
                                                 </Form.Group>
+                                                <Form.Group className="form-outline mb-5">
+                                                    <div className="text-end pt-1 pb-1">
+                                                        <a href="#!" className="text-muted">
+                                                            Forgot Your password?
+                                                        </a>
+                                                    </div>
+                                                </Form.Group>
+                                                <Form.Group className="form-outline mb-4">
+                                                    <div className="text-center pt-1 pb-1">
+                                                        <Button variant="secondary" className="btn-hover gradient-custom-2" type="submit" disabled={!(formik.isValid && formik.dirty)}></Button>
+                                                    </div>
+                                                    <FeatherIcon icon={"log-in"}> &nbsp; Login </FeatherIcon>
+                                                </Form.Group>
+
                                             </Form>
                                         </div>
                                     </Col>
