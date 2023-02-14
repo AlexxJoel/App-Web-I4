@@ -1,0 +1,85 @@
+{
+	"info": {
+		"_postman_id": "1072d4e6-2412-4eff-b593-716625368480",
+		"name": "TorresSpring",
+		"description": "Proyecto CRUD en Spring con validaciones de nombre unico, campos no vacios y no existencia del registro",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Torres",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/torre/listaTorre",
+				"description": "Obtiene las torres"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Torre By IdTorre caso de Error",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/torre/detalleTorre/2",
+				"description": "localhost:8080/torre/detalleTorre/2"
+			},
+			"response": []
+		},
+		{
+			"name": "Post Crear Torre",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombreTorre\" : \"Torre Norte\",\r\n    \"cantidadAptos\" : \"30\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/torre/crearTorre"
+			},
+			"response": []
+		},
+		{
+			"name": "Get By id Torre Caso exito",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/torre/detalleTorre/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Torre",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombreTorre\" : \"Torre Sur\",\r\n    \"cantidadAptos\" : 40\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/torre/actualizarTorre/3"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Torre",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "localhost:8080/torre/borrarTorre/3"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
