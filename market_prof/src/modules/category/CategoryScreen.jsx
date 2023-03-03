@@ -1,15 +1,21 @@
-import React from 'react'
-import { Card } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Card, Col, Row } from 'react-bootstrap'
 import DataTable from 'react-data-table-component'
 import { ButtonCircle } from '../../shared/components/ButtonCircle'
+import { Loading } from '../../shared/components/Loading'
 
 export const CategoryScreen = () => {
 
   const [categories, setCategories] = useState([])
-  const [selectedCategory, setSelectedCategory] = useState(second)
-  const [isLoading, setIsLoading] = useState(false)
+  const [selectedCategory, setSelectedCategory] = useState({})
+  const [isLoading, setIsLoading] = useState(true)
   const [isEditing, setIsEditing] = useState(false)
+  const [filterText, setFilterText] = useState('')
   const [isOpen, setIsOpen] = useState(false)
+
+  const fiteredCategories = categories.filter(
+    category => category.name && category.name.toLowerCase().includes(filterText.toLowerCase())
+  )
 
 
   return (
@@ -21,7 +27,7 @@ export const CategoryScreen = () => {
             </Row>
         </Card.Header>
         <Card.Body>
-            <DataTable columns={[]} data={categories} progressPending={isLoading} progressComponent={<></>} noDataComponent={"Sin registros"} pagination paginationComponentOptions={{}} subHeader subHeaderComponent={<></>} persistTableHead striped={true} highlightOnHover={true} />
+            <DataTable columns={[]} data={categories} progressPending={isLoading} progressComponent={<Loading/>} noDataComponent={"Sin registros"} pagination paginationComponentOptions={{}} subHeader subHeaderComponent={<></>} persistTableHead striped={true} highlightOnHover={true} />
         </Card.Body>
     </Card>
   )
