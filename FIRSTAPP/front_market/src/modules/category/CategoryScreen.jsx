@@ -6,6 +6,7 @@ import { ButtonCircle } from '../../shared/components/ButtonCircle'
 import { FilterComponent } from '../../shared/components/FilterComponent'
 import { Loading } from '../../shared/components/Loading'
 import AxiosClient from '../../shared/plugins/axios'
+import CategoryForm from './components/CategoryForm'
 
 const options = {
   rowsPerPageText: 'Registro por páginas', 
@@ -26,7 +27,7 @@ export const CategoryScreen = () => {
     category => category.name && category.name.toLowerCase().includes(filterText.toLowerCase())
   )
 
-  useEffect(async () => {
+  const getCategorias =  async () => {
       try {
         setIsLoading(true); 
         const data = await AxiosClient({url: "/category/"}); 
@@ -41,7 +42,11 @@ export const CategoryScreen = () => {
       }finally{
         setIsLoading(false); 
       }
+    }
 
+
+  useEffect(() => {
+    getCategorias()
   }, []); 
 
   const  headerComponent = useMemo(() => {
@@ -83,7 +88,10 @@ export const CategoryScreen = () => {
         <Card.Header >
             <Row>
                 <Col>categorías</Col>
-                <Col className = "text-end"> <ButtonCircle type={"btn btn-success"} onClick={(arg) =>{} } icon="plus" size={16}/> </Col>
+                <Col className = "text-end">
+                   <ButtonCircle type={"btn btn-success"} onClick={(arg) =>{ setIsOpen(true)} } icon="plus" size={16}/> 
+                   <CategoryForm isOpen={isOpen} onClose={() => setIsOpen(false)} setCategories={setCategories} />
+                  </Col>
             </Row>
         </Card.Header>
 

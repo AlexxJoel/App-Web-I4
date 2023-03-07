@@ -1,8 +1,17 @@
 import React from 'react'
+import { useContext } from 'react'
 import { Button, Container, Nav, Navbar } from 'react-bootstrap'
-import { Form, Link } from 'react-router-dom'
+import { Form, Link, useNavigate } from 'react-router-dom'
+import { AuthContext } from '../../modules/auth/authContext'
 
 const AdminNavbar = () => {
+  const {dispatch} = useContext(AuthContext)
+  const navigate = useNavigate(); 
+  const hanldeLogout = () => {
+    dispatch({type: "LOGOUT"})
+    navigate('/auth', {replace: true})
+  }
+
   return (
     <Navbar bg="light" expand="lg">
     <Container fluid>
@@ -20,7 +29,7 @@ const AdminNavbar = () => {
          
         </Nav>
     
-          <Button variant="danger">Cerrar seión</Button>
+          <Button variant="danger" onClick={hanldeLogout}>Cerrar seión</Button>
        
       </Navbar.Collapse>
     </Container>
